@@ -1,0 +1,14 @@
+:root {
+    --light: #eee;
+    --dark: #222;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+h1 {
+    text-align: center;
+    background-color: aqua;
+}

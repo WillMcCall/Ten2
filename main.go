@@ -1,25 +1,43 @@
 package main
 
 import (
-	"fmt"
+	"html/template"
+	"net/http"
 
-	"github.com/WillMcCall/Ten2/db"
-	"github.com/WillMcCall/Ten2/db/countries"
+	"github.com/WillMcCall/Ten2/helpers"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	// r := gin.Default()
-	// r.GET("/test", func(c *gin.Context) {
-	// 	c.JSON(200, gin.H{
-	// 		"message": "test",
-	// 	})
-	// })
-	// r.Run()
+	router := gin.Default()
 
-	db := db.OpenConnection()
-	countries := countries.GetAll(db)
+	// Add `safeJS` as a template function
+	router.SetFuncMap(template.FuncMap{
+		"safeJS": func(s string) template.JS {
+			return template.JS(s)
+		},
+	})
 
-	fmt.Println(countries)
-	fmt.Println(len(*countries))
-	// I'VE DONE IT
+	router.LoadHTMLGlob("templates/*")
+	router.Static("/styles", "./styles")
+
+	router.GET("/", func(c *gin.Context) {
+		// Generate map JSON data
+		mapJSON := string(getMapJSON())
+
+		// Render the template with the map JSON
+		c.HTML(http.StatusOK, "index.tmpl", gin.H{
+			"mapJSON": mapJSON,
+		})
+	})
+
+	router.Run(":8080")
+}
+
+func getMapJSON() []byte {
+	countries := helpers.GetAllCountries()
+	mapData := helpers.FormatMapData(countries)
+	mapJSON := helpers.ConvertMapToJSON(mapData)
+
+	return mapJSON
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ten2</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to my Ten2 Page</h1>
+    </header>
+
+    <main>
+        <section id="map" style="width: 100%; height: 600px;">
+
+        </section>
+    </main>
+
+    <script>
+    
+    // Parse map JSON data from Go
+    const mapData = {{ .mapJSON | safeJS }};
+
+    // Layout for the map
+    const layout = {
+    title: 'Choropleth Map',
+    geo: {
+        showframe: false,
+        showcoastlines: false,
+        projection: {
+        type: 'mercator'
+        }
+    }
+    };
+
+    // Render the map using Plotly
+    Plotly.newPlot('map', mapData, layout);
+    
+    </script>
+</body>
+</html>
