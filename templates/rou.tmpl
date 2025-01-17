@@ -19,12 +19,10 @@
 
     <main>
         <section>
-            <h1>Welcome to my <a href="https://gemission.org/go/ten2project/" target="_blank" rel="noopener noreferrer">Ten2</a> Website!</h1>
-        </section>
-        
-        <h2 id="map-title">Percent Evangelical by Country</h2>
-        <section id="map">
-            <!-- This is where the map goes -->
+            <h1>Romania</h1>
+            <section id="rou-map">
+                <!-- This is where the map goes -->
+            </section>
         </section>
     </main>
 
@@ -33,7 +31,7 @@
     // Parse map JSON data from Go
     const mapData = {{ .mapJSON | safeJS }};
 
-    Plotly.newPlot('map', mapData);
+    Plotly.newPlot('rou-map', mapData);
     
     </script>
 </body>
