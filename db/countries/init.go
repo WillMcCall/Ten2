@@ -30,7 +30,7 @@ func Init() {
 
 func grabJSON() []byte {
 	apiKey := os.Getenv("JOSHUA_PROJECT_KEY")
-	url := "https://api.joshuaproject.net/v1/countries.json?api_key" + apiKey + "=b1dea565d8d0%20&limit=500&page=1"
+	url := "https://api.joshuaproject.net/v1/countries.json?api_key=" + apiKey + "%20&limit=500&page=1"
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {

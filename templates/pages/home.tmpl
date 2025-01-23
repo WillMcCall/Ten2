@@ -1,0 +1,33 @@
+{{ define "pages/home" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    {{ template "partials/head" . }}
+</head>
+<body>
+    {{ template "partials/header" . }}
+
+    <main>
+        <section>
+            <h1>Welcome to my <a href="https://gemission.org/go/ten2project/" target="_blank" rel="noopener noreferrer">Ten2</a> Website!</h1>
+        </section>
+        
+        <h2 id="map-title">Percent Evangelical by Country</h2>
+        <section id="map">
+            <!-- This is where the map goes -->
+        </section>
+    </main>
+
+    {{ template "partials/footer" . }}
+    <script>
+    
+    // Parse map JSON data from Go
+    const mapData = {{ .mapJSON | safeJS }};
+
+    Plotly.newPlot('map', mapData);
+    
+    </script>
+</body>
+</html>
+{{ end }}

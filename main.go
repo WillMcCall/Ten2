@@ -18,25 +18,28 @@ func main() {
 		},
 	})
 
-	router.LoadHTMLGlob("/var/www/will-mccall.com/ten2/templates/*")
-
-	// Loads styles
-	router.Static("/styles", "./styles")
+	router.Static("/static", "./static")  // Serves static files
+	router.LoadHTMLGlob("templates/**/*") // Serves templates
 
 	router.GET("/", func(c *gin.Context) {
-		// Generate map JSON data
 		mapJSON := getMapJSON()
 
-		// Render the template with the map JSON
-		c.HTML(http.StatusOK, "index.tmpl", gin.H{
+		c.HTML(http.StatusOK, "pages/home", gin.H{
 			"mapJSON": mapJSON,
+		})
+	})
+
+	router.GET("/countries", func(c *gin.Context) {
+
+		c.HTML(http.StatusOK, "pages/countries", gin.H{
+			"idk": "nothing",
 		})
 	})
 
 	router.GET("/countries/ROU", func(c *gin.Context) {
 		mapJSON := getCountryJSON("ROU")
 
-		c.HTML(http.StatusOK, "rou.tmpl", gin.H{
+		c.HTML(http.StatusOK, "pages/rou", gin.H{
 			"mapJSON": mapJSON,
 		})
 	})

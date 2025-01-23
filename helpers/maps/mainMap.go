@@ -61,7 +61,7 @@ func FormatMapData(countries []countries.Country) MapData {
 	for _, country := range countries {
 		iso3 = append(iso3, country.ISO3)
 		percent_evangelical = append(percent_evangelical, country.PercentEvangelical)
-		hoverText := fmt.Sprintf("<b>%s<b><br><br>%.2f%% Evangelical<br>%.2f%% Christian",
+		hoverText := fmt.Sprintf("<b>%s<b><br><br>%.2f%% Evangelical<br>%.2f%% Christian Adherent",
 			country.Name, country.PercentEvangelical, country.PercentChristianity)
 		hoverTexts = append(hoverTexts, hoverText)
 	}

@@ -1,21 +1,12 @@
+{{ define "pages/rou" }}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ten2</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <link rel="stylesheet" href="/styles/index.css">
+    {{ template "partials/head" . }}
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/">Home</a>
-            <a href="#updates">Updates</a>
-            <a href="#countries">Countries</a>
-            <a href="#about">About</a>
-        </nav>
-    </header>
+    {{ template "partials/header" . }}
 
     <main>
         <section>
@@ -26,6 +17,7 @@
         </section>
     </main>
 
+    {{ template "partials/footer" . }}
     <script>
     
     // Parse map JSON data from Go
@@ -36,3 +28,4 @@
     </script>
 </body>
 </html>
+{{ end }}
