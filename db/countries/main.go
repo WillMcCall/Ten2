@@ -130,7 +130,7 @@ func GetAll(db *sql.DB) *[]Country {
 	return &countries
 }
 
-func getByISO3(db *sql.DB, iso3 string) *Country {
+func GetByISO3(db *sql.DB, iso3 string) *Country {
 	var country Country
 
 	err := db.QueryRow(`

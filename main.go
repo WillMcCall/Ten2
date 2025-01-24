@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"net/http"
 
+	"github.com/WillMcCall/Ten2/helpers"
 	"github.com/WillMcCall/Ten2/helpers/maps"
 	"github.com/gin-gonic/gin"
 )
@@ -30,17 +31,19 @@ func main() {
 	})
 
 	router.GET("/countries", func(c *gin.Context) {
-
 		c.HTML(http.StatusOK, "pages/countries", gin.H{
-			"idk": "nothing",
+			"Countries": maps.GetAllCountries(),
 		})
 	})
 
-	router.GET("/countries/ROU", func(c *gin.Context) {
-		mapJSON := getCountryJSON("ROU")
+	router.GET("/countries/:iso3", func(c *gin.Context) {
+		iso3 := c.Param("iso3")
+		mapJSON := getCountryJSON(iso3)
+		country := helpers.GetCountry(iso3)
 
-		c.HTML(http.StatusOK, "pages/rou", gin.H{
+		c.HTML(http.StatusOK, "pages/country", gin.H{
 			"mapJSON": mapJSON,
+			"country": country,
 		})
 	})
 

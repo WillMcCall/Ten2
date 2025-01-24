@@ -50,9 +50,13 @@ func FormatCountryMapData(countries []countries.Country, iso3Code string) MapDat
 	data.Layout.Geo.ShowCoastlines = false
 	data.Layout.Geo.Scope = "world"
 	data.Layout.Geo.Projection.Type = "equirectangular"
-	data.Layout.Geo.Projection.Scale = 3.9
-	data.Layout.Geo.Center.Latitude = 50
-	data.Layout.Geo.Center.Longitude = 22
+	data.Layout.Geo.Projection.Scale = 1
+	data.Layout.Geo.Center.Latitude = 0
+	data.Layout.Geo.Center.Longitude = 0
+	// Decide what to do with this
+	// data.Layout.Geo.Projection.Scale = 3.9
+	// data.Layout.Geo.Center.Latitude = 50
+	// data.Layout.Geo.Center.Longitude = 22
 
 	return data
 }

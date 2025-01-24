@@ -1,4 +1,4 @@
-{{ define "pages/rou" }}
+{{ define "pages/country" }}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +10,8 @@
 
     <main>
         <section>
-            <h1>Romania</h1>
-            <section id="rou-map">
+            <h1>{{ .country.Name }}</h1>
+            <section id="country-map">
                 <!-- This is where the map goes -->
             </section>
         </section>
@@ -23,7 +23,7 @@
     // Parse map JSON data from Go
     const mapData = {{ .mapJSON | safeJS }};
 
-    Plotly.newPlot('rou-map', mapData);
+    Plotly.newPlot('country-map', mapData);
     
     </script>
 </body>
