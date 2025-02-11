@@ -1,3 +1,5 @@
 .env
 stuff.txt
 ten2.db
+run-app.sh
+ten2-app-binary

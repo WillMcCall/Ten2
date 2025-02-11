@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/styles/country.css">
     {{ template "partials/head" . }}
 </head>
 <body>
@@ -10,7 +11,17 @@
 
     <main>
         <section>
-            <h1>{{ .country.Name }}</h1>
+            <h1 class="country-header">{{ .country.Name }}</h1>
+
+            <section class="country-info">
+                <ul class="country-ul">
+                    <li>Population: {{ .country.Population }}</li>
+                    <li>Christian Adherent: {{ .country.PercentChristianity | formatFloat}}%</li>
+                    <li>Evangelical: {{ .country.PercentEvangelical | formatFloat }}%</li>
+                    <li>Atheist: {{ .country.PercentNonReligious | formatFloat }}%</li>
+                </ul>
+            </section>
+
             <section id="country-map">
                 <!-- This is where the map goes -->
             </section>

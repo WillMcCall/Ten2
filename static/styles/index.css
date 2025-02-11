@@ -1,12 +1,46 @@
 :root {
     --light: #eee;
     --dark: #222;
+    --link-color-light: #007BFF;
+    --link-color-light-hover: #006adc;
+    --link-color-dark: #66B2FF;
+    --link-color-dark-hover: #74b9fe;
 }
+
+  
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--dark);
+        color: var(--light);
+    }
+    
+    a {
+        color: var(--link-color-dark);
+    }
+
+    a:hover {
+        color: var(--link-color-dark-hover);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: var(--light);
+        color: var(--dark);
+    }
+    
+    a {
+        color: var(--link-color-light);
+    }
+
+    a:hover {
+        color: var(--link-color-light-hover);
+    }
+}
+  
 
 body {
     font-size: 11px;
-    background-color: var(--light);
-    color: var(--dark);
     font-family: "Roboto", Arial, "Trebuchet MS", sans-serif;
     text-align: center;
     margin: 0;
@@ -23,7 +57,7 @@ h1 {
 #map-title {
     font-size: 2em;
     margin-top: 1em;
-    margin-bottom: 0px;
+    padding-bottom: 0.5em;
 }
 
 #map {

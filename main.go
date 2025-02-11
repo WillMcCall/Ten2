@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 
@@ -16,6 +17,9 @@ func main() {
 	router.SetFuncMap(template.FuncMap{
 		"safeJS": func(s string) template.JS {
 			return template.JS(s)
+		},
+		"formatFloat": func(n float32) string {
+			return fmt.Sprintf("%.2f", n)
 		},
 	})
 

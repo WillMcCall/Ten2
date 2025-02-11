@@ -67,7 +67,8 @@ func FormatMapData(countries []countries.Country) MapData {
 	}
 
 	customColorscale := [][]interface{}{
-		{0.0, "rgb(201, 47, 47)"},
+		{0.0, "rgb(158, 10, 10)"},
+		{0.05, "rgb(201, 73, 47)"},
 		{0.3, "rgb(200, 173, 0)"},
 		{0.6, "rgb(98, 215, 15)"},
 		{1.0, "rgb(5, 243, 9)"},
@@ -83,8 +84,8 @@ func FormatMapData(countries []countries.Country) MapData {
 	data.Trace[0].Colorscale = customColorscale
 	data.Trace[0].Showscale = false
 
-	data.Layout.FigBgColor = "#eee"
-	data.Layout.PlotBgColor = "#eee"
+	data.Layout.FigBgColor = "#fff"
+	data.Layout.PlotBgColor = "#fff"
 	data.Layout.Margin.Bottom = 5
 	data.Layout.Margin.Top = 5
 	data.Layout.Margin.Left = 0

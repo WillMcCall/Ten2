@@ -1,0 +1,11 @@
+.country-ul {
+    list-style-type: none;
+    font-size: 1.4em;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1em;
+}
+
+.country-header {
+    margin-bottom: 0.8em;
+}

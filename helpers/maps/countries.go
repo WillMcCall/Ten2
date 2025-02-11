@@ -39,8 +39,8 @@ func FormatCountryMapData(countries []countries.Country, iso3Code string) MapDat
 	data.Trace[0].Colorscale = customColorscale
 	data.Trace[0].Showscale = false
 
-	data.Layout.FigBgColor = "#eee"
-	data.Layout.PlotBgColor = "#eee"
+	data.Layout.FigBgColor = "#fff"
+	data.Layout.PlotBgColor = "#fff"
 	data.Layout.Margin.Bottom = 5
 	data.Layout.Margin.Top = 5
 	data.Layout.Margin.Left = 0
