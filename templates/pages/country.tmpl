@@ -15,7 +15,7 @@
 
             <section class="country-info">
                 <ul class="country-ul">
-                    <li>Population: {{ .country.Population }}</li>
+                    <li>Population: {{ .country.Population | formatNumberWithCommas }}</li>
                     <li>Christian Adherent: {{ .country.PercentChristianity | formatFloat}}%</li>
                     <li>Evangelical: {{ .country.PercentEvangelical | formatFloat }}%</li>
                     <li>Atheist: {{ .country.PercentNonReligious | formatFloat }}%</li>

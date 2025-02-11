@@ -4,22 +4,45 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"strconv"
+	"strings"
 
 	"github.com/WillMcCall/Ten2/helpers"
 	"github.com/WillMcCall/Ten2/helpers/maps"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	// Load .env file
+	if err := godotenv.Load(); err != nil {
+		fmt.Println("Error loading .env file:", err)
+	}
+
 	router := gin.Default()
 
-	// Add `safeJS` as a template function
 	router.SetFuncMap(template.FuncMap{
 		"safeJS": func(s string) template.JS {
 			return template.JS(s)
 		},
 		"formatFloat": func(n float32) string {
 			return fmt.Sprintf("%.2f", n)
+		},
+		"formatNumberWithCommas": func(n int) string {
+			s := strconv.Itoa(n) // Convert number to string
+			if n < 1000 {
+				return s
+			}
+
+			// Insert commas
+			var result []string
+			for len(s) > 3 {
+				result = append([]string{s[len(s)-3:]}, result...)
+				s = s[:len(s)-3]
+			}
+			result = append([]string{s}, result...)
+
+			return strings.Join(result, ",")
 		},
 	})
 
