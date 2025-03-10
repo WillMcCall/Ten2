@@ -6,4 +6,4 @@
 * I chose Golang because I like how simple and easy it is and because it's pretty memory efficient for small applications like mine
 * I chose SQLite because it's fast and lightweight (especially for read operations which is most of what this website needs to do)
 
-I'm particularly proud of all the [maps](helpers/maps), I used Plotly and Google Maps for all the geolocation stuff and Joshua Project to get all my data
+I'm particularly proud of all the [maps](helpers/maps), I used Plotly and Google Maps for all the geolocation stuff and [Joshua Project](https://joshuaproject.net) to get all my data
